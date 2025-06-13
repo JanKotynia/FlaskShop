@@ -1,0 +1,60 @@
+# Pliki kompilowane przez Pythona
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Środowiska wirtualne
+env/
+venv/
+ENV/
+VENV/
+.venv/
+.env/
+
+# Pliki logów i tymczasowe
+*.log
+*.tmp
+*.bak
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db
+
+# Pliki testowe
+.coverage
+.tox/
+.nox/
+.cache/
+pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebooks checkpoint files
+.ipynb_checkpoints/
+
+# IDE / edytory
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Pliki konfiguracyjne i sekrety (jeśli używasz)
+.env
+*.env
+*.secret
+secrets.yaml
+config.yaml
+settings.json
+
+# Build i dystrybucja
+build/
+dist/
+*.egg-info/
+.eggs/
+MANIFEST
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
