@@ -2,27 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome page</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <div class="container">
-      <h1>Exotic shop</h1>
-      <h2>Witaj wybierz czynność:</h2>
-      <img src="{{ url_for('static', filename='images/Palm.png') }}" alt="Palm" class="palm-img">
-      <nav>
-        <a href="{{ url_for('login') }}" class="nav-button">Login</a>
-      </nav>
-      <nav>
-        <a href="{{ url_for('register') }}" class="nav-button">Register</a>
-      </nav>
+  <div class="container-fluid">
+    <div class="row">
 
-    <footer>
-      <a href="index.html" class="nav-reff">About us</a>
-      <a href="index.html" class="nav-reff">Contact</a>
-      <a href="index.html" class="nav-reff">FAQ</a>
-    </footer>
+      <!-- Login etc. -->
+      <div class="col-md-6 d-flex flex-column align-items-center justify-content-center left-panel">
+        <h1>Exotic shop</h1>
+        <h2>Witaj wybierz czynność:</h2>
+        <img src="{{ url_for('static', filename='images/Palm.png') }}" alt="Palm" class="palm-img">
+
+        <nav>
+          <button type="button" class="nav-button" data-bs-toggle="modal" data-bs-target="#Modal-Login">Login</button>
+        </nav>
+        <nav>
+          <a href="" class="nav-button">Register</a>
+        </nav>
+
+        <footer>
+          <a href="" class="nav-reff">About us</a>
+          <a href="" class="nav-reff">Contact</a>
+          <a href="" class="nav-reff">FAQ</a>
+        </footer>
+      </div>
+
+      <!-- Main product -->
+
+      <div class="col-md-6 d-flex flex-column align-items-center justify-content-center right-panel">
+        <h2>Best products</h2>
+        <div class="gallery">
+          <img src="https://via.placeholder.com/150" class="imgWelcome" alt="Img1">
+          <img src="https://via.placeholder.com/150" class="imgWelcome" alt="Img 2">
+          <img src="https://via.placeholder.com/150" class="imgWelcome" alt="Img 3">
+        </div>
+      </div>
+
+    </div>
   </div>
+
+  {% include 'includes/modal_login.html' %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

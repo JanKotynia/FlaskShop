@@ -77,3 +77,17 @@ footer {
 .nav-reff:hover {
   color: #d63031;
 }
+
+.left-panel {
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-right: 2px solid #dfe6e9;
+  height: 100vh;
+}
+
+.right-panel {
+  padding: 40px;
+  background-color: #f1f2f6;
+  height: 100vh;
+  overflow-y: auto;
+}
