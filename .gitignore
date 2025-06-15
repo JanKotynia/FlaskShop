@@ -40,7 +40,7 @@ coverage.xml
 *.sublime-project
 *.sublime-workspace
 
-# Pliki konfiguracyjne i sekrety (jeśli używasz)
+# Pliki konfiguracyjne
 .env
 *.env
 *.secret

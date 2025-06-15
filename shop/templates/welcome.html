@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+            <ul class=flashes>
+        {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+            </ul>
+    {% endif %}
+  {% endwith %}
   <div class="container-fluid">
     <div class="row">
 
@@ -18,10 +27,10 @@
         <img src="{{ url_for('static', filename='images/Palm.png') }}" alt="Palm" class="palm-img">
 
         <nav>
-          <button type="button" class="nav-button" data-bs-toggle="modal" data-bs-target="#Modal-Login">Login</button>
+          <button type="button" class="nav-button" data-bs-toggle="modal" data-bs-target="#Modal-Login">Register</button>
         </nav>
         <nav>
-          <a href="" class="nav-button">Register</a>
+          <a href="" class="nav-button">Login</a>
         </nav>
 
         <footer>
@@ -46,6 +55,7 @@
   </div>
 
   {% include 'includes/modal_login.html' %}
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
