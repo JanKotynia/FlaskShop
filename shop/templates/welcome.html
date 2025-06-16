@@ -8,54 +8,50 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    {% with messages = get_flashed_messages(with_categories=true) %}
+{% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-            <ul class=flashes>
         {% for category, message in messages %}
-              <li class="{{ category }}">{{ message }}</li>
+          <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
         {% endfor %}
-            </ul>
     {% endif %}
   {% endwith %}
-  <div class="container-fluid">
-    <div class="row">
 
-      <!-- Login etc. -->
-      <div class="col-md-6 d-flex flex-column align-items-center justify-content-center left-panel">
-        <h1>Exotic shop</h1>
-        <h2>Witaj wybierz czynność:</h2>
-        <img src="{{ url_for('static', filename='images/Palm.png') }}" alt="Palm" class="palm-img">
+  <div class="left-panel">
+    <h1>Exotic shop</h1>
+    <nav>
+      <button type="button" class="nav-button" data-bs-toggle="modal" data-bs-target="#Modal-Register">Register</button>
+    </nav>
+    <nav>
+      <button type="button" class="nav-button" data-bs-toggle="modal" data-bs-target="#Modal-Login">Login</button>
+    </nav>
 
-        <nav>
-          <button type="button" class="nav-button" data-bs-toggle="modal" data-bs-target="#Modal-Login">Register</button>
-        </nav>
-        <nav>
-          <a href="" class="nav-button">Login</a>
-        </nav>
+  </div>
 
-        <footer>
-          <a href="" class="nav-reff">About us</a>
-          <a href="" class="nav-reff">Contact</a>
-          <a href="" class="nav-reff">FAQ</a>
-        </footer>
-      </div>
+  <div class="right-panel">
+    <h2 class="section-title">Best products Best prices</h2>
 
-      <!-- Main product -->
-
-      <div class="col-md-6 d-flex flex-column align-items-center justify-content-center right-panel">
-        <h2>Best products</h2>
-        <div class="gallery">
-          <img src="https://via.placeholder.com/150" class="imgWelcome" alt="Img1">
-          <img src="https://via.placeholder.com/150" class="imgWelcome" alt="Img 2">
-          <img src="https://via.placeholder.com/150" class="imgWelcome" alt="Img 3">
+    <div class="images-container">
+      {% for i in range(4) %}
+        <div class="image-box">
+          <img src="{{ url_for('static', filename='images/img_example.png') }}" alt="Image {{ i + 1 }}">
+          <p class="mt-2 mb-1">Text {{ i + 1 }}</p>
+          <p class="mt-1 mb-1">Price {{ i + 1 }}</p>
         </div>
-      </div>
-
+      {% endfor %}
     </div>
   </div>
 
-  {% include 'includes/modal_login.html' %}
+  <footer>
+    <a href="{{ url_for('shop') }}" class="nav-reff">About us</a>
+    <a href="" class="nav-reff">Contact</a>
+    <a href="" class="nav-reff">FAQ</a>
+  </footer>
 
+  {% include 'includes/modal_register.html' %}
+  {% include 'includes/modal_login.html' %}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

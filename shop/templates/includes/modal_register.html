@@ -1,0 +1,54 @@
+
+<style>
+.custom-modal .modal-content {
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.custom-modal .modal-header {
+  background-color: #007bff;
+  color: white;
+  border-bottom: none;
+}
+
+.custom-modal .modal-footer {
+  border-top: none;
+  justify-content: space-between;
+}
+</style>
+<div class="modal fade" id="Modal-Register"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>
+          Register
+        </h1>
+      </div>
+        <form method="POST">
+            {{ form_register.hidden_tag() }}
+
+            {{ form_register.username.label() }}
+            {{ form_register.username(class="form-control", placeholder="User Name") }}
+
+            {{ form_register.email_address.label() }}
+            {{ form_register.email_address(class="form-control", placeholder="Email Address") }}
+
+            {{ form_register.password1.label() }}
+            {{ form_register.password1(class="form-control", placeholder="Password") }}
+
+            {{ form_register.password2.label() }}
+            {{ form_register.password2(class="form-control", placeholder="Confirm Password") }}
+
+            <div class="checkbox mb-3">
+               <h6>Do you have an account?</h6>
+               <a class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Go back</a>
+            </div>
+            {{ form_register.submit(class="btn btn-lg btn-block btn-primary") }}
+        </form>
+    </div>
+  </div>
+</div>

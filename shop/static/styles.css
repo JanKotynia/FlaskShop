@@ -1,5 +1,6 @@
 html, body {
-  background: linear-gradient(to bottom, #ffeaa7, #fab1a0);
+  background: url("images/back.png");
+  background-size: cover;
   font-family: 'Trebuchet MS', sans-serif;
   color: #2d3436;
   height: 100%;
@@ -49,22 +50,14 @@ h2 {
 footer {
   position: fixed;
   bottom: 0;
-  left: 20%;
-  width: 60%;
+  left: 30%;
+  width: 40%;
   text-align: center;
   background-color: #55efc4;
   padding: 10px;
   border-radius: 20px 20px 0 0;
 }
 
-.palm-img {
-  position: fixed;
-  width: 300px;
-  height: auto;
-  left: 0;
-  bottom: 0;
-  transform: rotate(-90deg);
-}
 
 .nav-reff {
   margin: 0 15px;
@@ -74,20 +67,46 @@ footer {
   transition: color 0.3s ease;
 }
 
-.nav-reff:hover {
-  color: #d63031;
-}
 
 .left-panel {
+  position: fixed;
+  top: 5%;
+  left: 5%;
   padding: 40px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-right: 2px solid #dfe6e9;
-  height: 100vh;
+  background-color: linear-gradient(to bottom, #ffeaa7, #fab1a0);
+  height: 50vh;
+  width: 40%;
+  text-align: center;
+  background: linear-gradient(to bottom, #ffeaa7, #fab1a0);
+  border-radius: 20px;
 }
 
 .right-panel {
-  padding: 40px;
-  background-color: #f1f2f6;
-  height: 100vh;
-  overflow-y: auto;
+  text-align: center;
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  background: linear-gradient(to bottom, #ffeaa7, #fab1a0);
+  border-radius: 10px;
+  width: 40%
+}
+
+
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.image-box img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.alert {
+  position: relative;
+  z-index: 10;
+  margin: 5px;
 }
