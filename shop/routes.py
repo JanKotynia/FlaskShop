@@ -1,6 +1,6 @@
 from flask_login import login_user, logout_user
 from shop import app
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, session
 from shop import db
 from shop.forms import RegisterForm, LoginForm
 from shop.models import User
@@ -32,7 +32,10 @@ def home():
         ):
             login_user(attempted_user)
             flash(f'Success! You are logged in as: {attempted_user.username}', category='success')
-            return redirect(url_for('shop'))
+            if attempted_user.username == "Admin":
+                return redirect(url_for('shop_admin'))
+            else:
+                return redirect(url_for('shop'))
         else:
             flash('Wrong username or password! Try again!', category='danger')
 

@@ -11,7 +11,7 @@
 
     <div class="container-prof">
        {{ current_user.username }}
-      <button class="nav-button" onclick="{{ url_for('logout_page') }}">Logout</button>
+      <a class="nav-button" href="{{ url_for('logout_page') }}">Logout</a>
     </div>
 
     <div class="content">
@@ -24,5 +24,6 @@
       <a href="{{ url_for('home') }}" class="nav-reff">Contact</a>
       <a href="" class="nav-reff">FAQ</a>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

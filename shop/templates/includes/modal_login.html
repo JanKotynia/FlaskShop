@@ -16,7 +16,7 @@
 
             <div class="checkbox mb-3">
                <h6>Do not have an account?</h6>
-               <a class="btn btn-sm btn-secondary" href="{{ url_for('shop') }}">Register</a>
+               <a class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#Modal-Register">Register</a>
             </div>
 
             {{ form_login.submit(class="nav-button") }}
