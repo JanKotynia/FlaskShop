@@ -1,4 +1,6 @@
 from flask_login import login_user, logout_user
+from sqlalchemy.sql.sqltypes import NULLTYPE
+
 from shop import app
 from flask import render_template, flash, redirect, url_for, session
 from shop import db
@@ -11,7 +13,7 @@ from shop.models import User
 def home():
     form_register = RegisterForm()
     if form_register.validate_on_submit():
-        user_to_create = User(username=form_register.username.data,email_address=form_register.email_address.data,password=form_register.password1.data)
+        user_to_create = User(username=form_register.username.data,email_address=form_register.email_address.data,password=form_register.password1.data,prof_img=None)
         db.session.add(user_to_create)
         db.session.commit()
         login_user(user_to_create)
@@ -45,8 +47,13 @@ def home():
 def shop():
     return render_template('main_page.html')
 
+@app.route("/admin_panel")
+def shop_admin():
+    return render_template('admin_panel.html')
+
 @app.route('/logout')
 def logout_page():
     logout_user()
+    session.pop('_flashes', None)
     flash("You have been logged out!", category='info')
     return redirect(url_for("home"))

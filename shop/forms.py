@@ -1,6 +1,9 @@
+from dns.dnssec import validate
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import Length, EqualTo, Email, DataRequired, ValidationError
+from flask_wtf.file import FileAllowed
+from wtforms import StringField, PasswordField, SubmitField, FileField
+from wtforms.fields.numeric import IntegerField
+from wtforms.validators import Length, EqualTo, Email, DataRequired, ValidationError, NumberRange
 from shop.models import User
 
 class RegisterForm(FlaskForm):
@@ -25,3 +28,14 @@ class LoginForm(FlaskForm):
     username = StringField(label='User Name:', validators=[DataRequired()])
     password = PasswordField(label='Password:', validators=[DataRequired()])
     submit = SubmitField(label='Sign in')
+
+
+class ItemForm(FlaskForm):
+    name = StringField(label='Product Name:', validators=[DataRequired()])
+    price = IntegerField(label="Price: ",validators=[DataRequired(), NumberRange(0,None,None)])
+    barcode = StringField(label='Barcode: ', validators=[DataRequired()])
+    description = StringField(label='Description:')
+    amount = IntegerField(label="Price: ",validators=[DataRequired()])
+    img = FileField('Product Image', validators=[FileAllowed(['jpg', 'png', 'jpeg'], 'Only images are allowed!')])
+
+    submit = SubmitField('Upload')
