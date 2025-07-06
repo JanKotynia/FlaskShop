@@ -36,9 +36,9 @@
     <div class="images-container">
       {% for i in range(4) %}
         <div class="image-box">
-          <img src="{{ url_for('static', filename='images/img_example.png') }}" alt="Image {{ i + 1 }}">
-          <p class="mt-2 mb-1">Text {{ i + 1 }}</p>
-          <p class="mt-1 mb-1">Price {{ i + 1 }}</p>
+          <img src="{{ url_for('static', filename='images/img_example.png') }}" alt="Image {{ items[i].name }}">
+          <p class="mt-2 mb-1">{{ items[i].name }}</p>
+          <p class="mt-1 mb-1">{{ items[i].price }} $</p>
         </div>
       {% endfor %}
     </div>

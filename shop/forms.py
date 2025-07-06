@@ -38,4 +38,4 @@ class ItemForm(FlaskForm):
     amount = IntegerField(label="Price: ",validators=[DataRequired()])
     img = FileField('Product Image', validators=[FileAllowed(['jpg', 'png', 'jpeg'], 'Only images are allowed!')])
 
-    submit = SubmitField('Upload')
+    submit = SubmitField('Add')

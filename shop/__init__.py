@@ -10,7 +10,7 @@ load_dotenv()
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-app.config['UPLOAD_FOLDER'] = os.path.join('static', 'static/images')
+app.config['UPLOAD_FOLDER'] = 'static/images'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)

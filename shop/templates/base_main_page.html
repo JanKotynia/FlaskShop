@@ -8,6 +8,16 @@
       <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+    {% endif %}
+  {% endwith %}
 
     <div class="container-prof">
        {{ current_user.username }}
@@ -24,6 +34,16 @@
       <a href="{{ url_for('home') }}" class="nav-reff">Contact</a>
       <a href="" class="nav-reff">FAQ</a>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+      function buyItem(itemId) {
+      fetch(`/buy/${itemId}`, { method: 'POST' })
+        .then(response => {
+          if (response.ok) {
+            alert('Item bought!');
+            location.reload();
+          }
+        });
+      }
+    </script>
   </body>
 </html>

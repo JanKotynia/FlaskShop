@@ -3,4 +3,30 @@
 
 {% block content %}
   <h1>Admin Panel</h1>
+
+<div class="container">
+    <form method="POST" >
+    {{ form_item.hidden_tag() }}
+
+    {{ form_item.name.label() }}
+    {{ form_item.name(class="form-control", placeholder="Item Name") }}
+
+    {{ form_item.price.label() }}
+    {{ form_item.price(class="form-control", placeholder="Price") }}
+
+    {{ form_item.barcode.label() }}
+    {{ form_item.barcode(class="form-control", placeholder="Barcode") }}
+
+    {{ form_item.description.label() }}
+    {{ form_item.description(class="form-control", placeholder="Description") }}
+
+    {{ form_item.amount.label() }}
+    {{ form_item.amount(class="form-control", placeholder="Amount") }}
+
+    {{ form_item.img.label() }}
+    {{ form_item.img(class="form-control", placeholder="Img") }}
+
+    {{ form_item.submit(class="nav-button") }}
+    </form>
+  </div>
 {% endblock %}

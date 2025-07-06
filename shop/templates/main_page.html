@@ -3,4 +3,22 @@
 
 {% block content %}
   <h1>ExoticShop</h1>
+
+<div class="shop-panel">
+    <div class="images-container">
+      {% for item in items %}
+        <div class="image-box">
+          <img src="{{ url_for('static', filename='images/img_example.png') }}" alt="Image {{ item.name }}">
+          <div class="container-info">
+          <div class="p-3">
+          <p class="mt-2 mb-1">{{ item.name }}</p>
+          <p class="mt-1 mb-1">Price: {{ item.price }}$</p>
+          </div>
+            <button type="button" class="nav-button" onclick="buyItem({{ item.id }})">Buy</button>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+</div>
+
 {% endblock %}
