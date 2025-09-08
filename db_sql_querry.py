@@ -17,6 +17,8 @@ with app.app_context():
             Item(name="Coconut shell3", price=25, barcode="barcode3", description="desc3", amount=40),
             Item(name="Coconut shell4", price=35, barcode="barcode4", description="desc4", amount=40),
         ]
+        admin = User(username="Admin", email_address="admin.admin@gmail.com",password="321",prof_img=None)
         db.session.add_all(items)
+        db.session.add(admin)
         db.session.commit()
     db.session.commit()

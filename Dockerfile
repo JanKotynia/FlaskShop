@@ -14,5 +14,4 @@ RUN python db_sql_querry.py
 
 EXPOSE 5000
 
-# Uruchom aplikację
 CMD ["flask", "run"]
