@@ -34,11 +34,11 @@
     <h2 class="section-title">Best products Best prices</h2>
 
     <div class="images-container">
-      {% for i in range(4) %}
+      {% for item in items %}
         <div class="image-box">
-          <img src="{{ url_for('static', filename='images/img_example.png') }}" alt="Image {{ items[i].name }}">
-          <p class="mt-2 mb-1">{{ items[i].name }}</p>
-          <p class="mt-1 mb-1">{{ items[i].price }} $</p>
+          <img src="{{ url_for('static', filename='images/img_example.png') }}" alt="Image {{ item.name }}">
+          <p class="mt-2 mb-1">{{ item.name }}</p>
+          <p class="mt-1 mb-1">{{ item.price }} $</p>
         </div>
       {% endfor %}
     </div>

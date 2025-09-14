@@ -35,7 +35,7 @@ class ItemForm(FlaskForm):
     price = IntegerField(label="Price: ",validators=[DataRequired(), NumberRange(0,None,None)])
     barcode = StringField(label='Barcode: ', validators=[DataRequired()])
     description = StringField(label='Description:')
-    amount = IntegerField(label="Price: ",validators=[DataRequired()])
+    amount = IntegerField(label="Amount: ",validators=[DataRequired()])
     img = FileField('Product Image', validators=[FileAllowed(['jpg', 'png', 'jpeg'], 'Only images are allowed!')])
 
     submit = SubmitField('Add')

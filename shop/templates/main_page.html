@@ -14,7 +14,9 @@
           <p class="mt-2 mb-1">{{ item.name }}</p>
           <p class="mt-1 mb-1">Price: {{ item.price }}$</p>
           </div>
-            <button type="button" class="nav-button" onclick="buyItem({{ item.id }})">Buy</button>
+            <form action="{{ url_for('buy_item', item_id=item.id) }}" method="POST">
+              <button type="submit" class="nav-button">Buy</button>
+            </form>
           </div>
         </div>
       {% endfor %}
