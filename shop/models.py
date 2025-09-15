@@ -17,6 +17,10 @@ class User(db.Model, UserMixin):
 
     @property
     def password(self):
+        """
+        Prevents direct reading of the password
+        :return: error when call
+        """
         raise AttributeError("No readable")
 
     @password.setter

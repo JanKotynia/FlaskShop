@@ -8,11 +8,23 @@ from shop.models import User
 
 class RegisterForm(FlaskForm):
     def validate_username(self, username_to_check):
+        """
+        validating username
+
+        :param username_to_check: username
+        :return: gives info about errors
+        """
         user = User.query.filter_by(username=username_to_check.data).first()
         if user:
             raise ValidationError('Username already exists! Please try a different username')
 
     def validate_email_address(self, email_address_to_check):
+        """
+        validating email
+
+        :param email_address_to_check: user email address
+        :return: gives info about errors
+        """
         email_address = User.query.filter_by(email_address=email_address_to_check.data).first()
         if email_address:
             raise ValidationError('Email Address already exists! Please try a different email address')

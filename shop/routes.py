@@ -13,6 +13,10 @@ from shop.models import User, Item
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    """
+    The function handles user registration and authentication.
+    :return: HTML page with login and registration forms.
+    """
     items = Item.query.all()
     form_register = RegisterForm()
     if form_register.validate_on_submit():
@@ -50,11 +54,20 @@ def home():
 
 @app.route("/shop", methods=['GET'])
 def shop():
+    """
+    Function is responsible for displaying products on the store's homepage.
+    :return: HTML main page, database and all items entities form database
+    """
     items = Item.query.all()
     return render_template('main_page.html', items=items, db=db)
 
 @app.route('/buy/<int:item_id>', methods=['POST'])
 def buy_item(item_id):
+    """
+    Function responsible for purchasing items
+    :param item_id: ID of the purchased item
+    :return: redirect to main shop page
+    """
     item = Item.query.get_or_404(item_id)
     db.session.delete(item)
     db.session.commit()
@@ -63,6 +76,10 @@ def buy_item(item_id):
 
 @app.route("/admin_panel", methods=['GET', 'POST'])
 def shop_admin():
+    """
+    Function responsible for adding items by a user logged in as an admin
+    :return: HTML admin page and item adding form
+    """
     form_item = ItemForm()
     if form_item.validate_on_submit():
         image = form_item.img.data
@@ -90,6 +107,10 @@ def shop_admin():
 
 @app.route('/logout')
 def logout_page():
+    """
+    Function responsible for logging out users
+    :return: redirect to login/register page
+    """
     logout_user()
     session.pop('_flashes', None)
     flash("You have been logged out!", category='info')
