@@ -1,1 +1,1 @@
-Flask shop web CRUD app, with simple UI
+Flask shop web CRUD app, with simple UI. After cloning the repository, run the command: "docker compose up --build", in the terminal, which will start the project locally and build the Docker image. The application automatically populates the database with data. On the homepage, you can log in as: "Admin" with the password "321" to add items to the shop, or create a regular account via registration to buy items.
